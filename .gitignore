@@ -1,0 +1,10 @@
+# Node dependencies
+node_modules/
+
+# Environment variables (JWT secrets, MongoDB URIs, etc.)
+.env
+.env.local
+
+# Production builds
+frontend/dist/
+frontend/build/
