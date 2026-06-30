@@ -7,4 +7,4 @@ node_modules/
 
 # Production builds
 frontend/dist/
-frontend/build/
+frontend/build/ 
