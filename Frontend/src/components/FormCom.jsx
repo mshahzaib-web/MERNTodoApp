@@ -1,12 +1,18 @@
 import { useForm } from "react-hook-form";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useNavigate } from "react-router-dom";
 import addTask from "../api/addTask";
 
 export default function FormCom() {
+  const queryClient = useQueryClient();
+  const navigate = useNavigate();
+
   const mutation = useMutation({
     mutationFn: addTask,
     onSuccess: (data) => {
+      queryClient.invalidateQueries({ queryKey: ["data"] });
       alert(data.message);
+      navigate("/dashboard/mytask");
     },
   });
 

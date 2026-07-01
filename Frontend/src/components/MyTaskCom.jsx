@@ -1,4 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { Link } from "react-router-dom";
+
 import deleteTask from "../api/deleteTask";
 import getTask from "../api/getTask";
 
@@ -28,6 +30,21 @@ export default function MyTaskCom() {
   const deleteHandle = (id) => {
     deleteMutation.mutate(id);
   };
+
+
+  // const updateMutation = useMutation({
+  //   mutationFn: updateTask,
+  //   onSuccess: () => {
+  //     // Invalidate the cache to trigger an automatic layout update
+  //     queryClient.invalidateQueries({ queryKey: ["data"] });
+  //     alert("Task Update succefullys");
+  //   },
+  //   onError: (err) => alert(`Task Update failed: ${err.message}`),
+  // });
+
+  // const updateHandle = (id) => {
+  //   deleteMutation.mutate(id);
+  // };
 
   if (isPending) return <span>Loading...</span>;
 
@@ -60,9 +77,11 @@ export default function MyTaskCom() {
               </div>
 
               <div className="flex ">
+               <Link to="/task/update" state={{taskData: Tasks}}>
                 <button className="mr-3  bg-amber-200 px-2 cursor-pointer rounded hover:font-bold hover:text-white">
                   Update
                 </button>
+               </Link>
 
                 <button
                   onClick={() => deleteHandle(Tasks._id)}
