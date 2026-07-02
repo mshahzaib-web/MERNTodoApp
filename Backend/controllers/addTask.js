@@ -3,6 +3,7 @@ import asyncHandler from "express-async-handler";
 
 const addTask = asyncHandler(async (req, res) => {
   const { task } = req.body;
+  const { userId } = req.user;
 
   if (task == "") {
     res.status(400);
@@ -11,12 +12,13 @@ const addTask = asyncHandler(async (req, res) => {
 
   const newTask = new Task({
     task: task,
+    user: userId,
   });
 
   const savedTask = await newTask.save();
 
   // 4. Send the saved document back to the client with a 211 (Created) status
-  res.status(201).json({
+  return res.status(201).json({
     success: true,
     message: "Task Add Successfully",
     savedTask,

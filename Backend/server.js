@@ -1,5 +1,5 @@
-import dns from 'dns';
-dns.setServers(['8.8.8.8', '8.8.4.4']);
+import dns from "dns";
+dns.setServers(["8.8.8.8", "8.8.4.4"]);
 
 import express from "express";
 import dotenv from "dotenv";
@@ -9,15 +9,14 @@ import cookieParser from "cookie-parser";
 import connectDB from "./config/db.js";
 import errorHandler from "./middleware/errorHandler.js";
 
-import taskRoutes from "./routes/taskRoutes.js"
+import taskRoutes from "./routes/taskRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
 
 dotenv.config();
 
 connectDB();
 
 const app = express();
-
-
 
 // Body parser
 app.use(express.json());
@@ -30,11 +29,12 @@ app.use(
   cors({
     origin: process.env.CLIENT_URL,
     credentials: true,
-  })
+  }),
 );
 
 // Routes
 app.use("/api", taskRoutes);
+app.use("/user", userRoutes);
 // app.use("/api/users", userRoutes);
 
 // Error Handler (Always keep this LAST)

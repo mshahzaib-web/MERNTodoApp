@@ -6,15 +6,21 @@ export default function LoginSignup() {
       <div>
         <div>
           <Link to="/add-task">
-            <button className="cursor-pointer hover:font-bold hover:text-white">Add Task</button>
+            <button className="cursor-pointer hover:font-bold hover:text-white">
+              Add Task
+            </button>
           </Link>
         </div>
         <div className="flex justify-end mr-4 my-3">
           <div className="mr-2 cursor-pointer hover:text-white hover:font-bold">
-            Login
+            <Link to="/user/signin">
+              <button className="cursor-pointer">LogIn</button>
+            </Link>
           </div>
           <div className="cursor-pointer hover:text-white hover:font-bold">
-            SignUp
+            <Link to="/user/signup">
+              <button className="cursor-pointer">SignUp</button>
+            </Link>
           </div>
         </div>
       </div>

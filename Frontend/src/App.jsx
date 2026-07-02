@@ -5,6 +5,8 @@ import Dashboard from "./Pages/Dashboard";
 import MyTask from "./Pages/MyTask";
 import Form from "./Pages/Form";
 import UpdateForm from "./Pages/UpdateForm";
+import SignUpForm from "./Pages/SignUpForm";
+import LoginForm from "./Pages/LoginForm";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +21,8 @@ function App() {
             <Route path="/dashboard/mytask" element={<MyTask />}></Route>
             <Route path="/add-task" element={<Form />}></Route>
             <Route path="/task/update" element={<UpdateForm />}></Route>
+            <Route path="/user/signup" element={<SignUpForm />}></Route>
+            <Route path="/user/signin" element={<LoginForm />}></Route>
           </Routes>
         </BrowserRouter>
       </QueryClientProvider>
