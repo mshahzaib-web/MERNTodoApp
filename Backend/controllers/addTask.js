@@ -5,9 +5,11 @@ const addTask = asyncHandler(async (req, res) => {
   const { task } = req.body;
   const { userId } = req.user;
 
-  if (task == "") {
-    res.status(400);
-    throw new Error("task is also empty");
+  if (!task) {
+    return res.status(400).json({
+      success: false,
+      message: "Task is empty",
+    });
   }
 
   const newTask = new Task({

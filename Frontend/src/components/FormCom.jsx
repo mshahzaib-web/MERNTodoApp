@@ -14,6 +14,10 @@ export default function FormCom() {
       alert(data.message);
       navigate("/dashboard/mytask");
     },
+    onError: (error) => {
+      alert(error.response.data.message);
+      navigate("/user/signin");
+    },
   });
 
   const {

@@ -13,10 +13,6 @@ export default function MyTaskCom() {
     // enabled: false
   });
 
-  
-
-  
-
   const deleteMutation = useMutation({
     mutationFn: deleteTask,
     onSuccess: () => {
@@ -30,7 +26,6 @@ export default function MyTaskCom() {
   const deleteHandle = (id) => {
     deleteMutation.mutate(id);
   };
-
 
   // const updateMutation = useMutation({
   //   mutationFn: updateTask,
@@ -51,14 +46,13 @@ export default function MyTaskCom() {
   if (error) return alert(error.message);
 
   const allTasks = data.data.allTasks;
-  
 
   return (
     <>
       <div className="flex justify-center">
         <div>
           <div className="py-7">
-            <h3 className="font-bold text-2xl text-white">Name</h3>
+            <h3 className="font-bold text-2xl text-white">Shahzaib</h3>
           </div>
           <div className="">
             <h3 className="font-bold text-xl text-white">My Task:</h3>
@@ -77,11 +71,11 @@ export default function MyTaskCom() {
               </div>
 
               <div className="flex ">
-               <Link to="/task/update" state={{taskData: Tasks}}>
-                <button className="mr-3  bg-amber-200 px-2 cursor-pointer rounded hover:font-bold hover:text-white">
-                  Update
-                </button>
-               </Link>
+                <Link to="/task/update" state={{ taskData: Tasks }}>
+                  <button className="mr-3  bg-amber-200 px-2 cursor-pointer rounded hover:font-bold hover:text-white">
+                    Update
+                  </button>
+                </Link>
 
                 <button
                   onClick={() => deleteHandle(Tasks._id)}

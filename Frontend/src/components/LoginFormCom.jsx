@@ -13,6 +13,7 @@ export default function LoginFormCom() {
 
     onSuccess: (data) => {
       queryClient.invalidateQueries({ queryKey: ["data"] });
+      queryClient.invalidateQueries({ queryKey: ["user"] });
       alert(data.message);
       navigate("/dashboard/mytask");
     },
